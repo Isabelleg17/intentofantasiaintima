@@ -67,17 +67,16 @@ TEMPLATES = [
 WSGI_APPLICATION = 'sexshop.wsgi.application'
 
 # Base de datos
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'fantasiaintima2',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306',
-        'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-    }
+    'default': dj_database_url.parse(
+        'postgres://fantasiaintima2_user:to2S4PKbDej2iazK8qydnQrYFOTCOpjf@dpg-d299suqdbo4c73b9a0sg-a.oregon-postgres.render.com:5432/fantasiaintima2'
+    )
 }
+
+
+
 
 # Validación de contraseñas
 AUTH_PASSWORD_VALIDATORS = [
