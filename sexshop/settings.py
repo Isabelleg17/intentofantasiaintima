@@ -28,6 +28,7 @@ INSTALLED_APPS = [
 
 # Middleware
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -102,14 +103,11 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# Archivos estáticos
-STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [
-    'appsexshop/static',
-]
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'appsexshop/static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # donde collectstatic los guardará
 
-# Archivos multimedia
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 

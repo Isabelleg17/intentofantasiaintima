@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: intentofantasiaintima
+    env: python
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+    startCommand: gunicorn sexshop.wsgi:application
+    staticPublishPath: staticfiles  # será la salida de collectstatic
+    static:
+      - path: /media
+        source: media/

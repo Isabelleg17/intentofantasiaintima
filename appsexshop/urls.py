@@ -73,5 +73,10 @@ urlpatterns = [
    
 ]
 
+# Solo agregar media en modo DEBUG no sirve para producción.
+# Así que la incluimos siempre en Render con este truco:
 if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+else:
+    # Esto se usa en producción en Render si activas static en render.yaml
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
