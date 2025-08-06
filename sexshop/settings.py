@@ -70,8 +70,8 @@ WSGI_APPLICATION = 'sexshop.wsgi.application'
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.parse(
-        'postgres://fantasiaintima2_user:to2S4PKbDej2iazK8qydnQrYFOTCOpjf@dpg-d299suqdbo4c73b9a0sg-a.oregon-postgres.render.com:5432/fantasiaintima2'
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL')
     )
 }
 
